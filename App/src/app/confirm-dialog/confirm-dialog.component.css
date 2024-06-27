@@ -1,0 +1,32 @@
+/* Tema oscuro para el diálogo de confirmación */
+.mat-dialog-container {
+    background-color: #333;
+    color: #fff;
+    border-radius: 8px;
+  }
+  
+  .mat-dialog-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .mat-dialog-content {
+    font-size: 16px;
+  }
+  
+  .mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .mat-button {
+    background-color: #444;
+    color: #fff;
+    margin: 5px; /* Espaciado entre botones */
+  }
+  
+  .mat-button:hover {
+    background-color: #555;
+    opacity: 0.8;
+  }
+  

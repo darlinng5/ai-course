@@ -1,0 +1,462 @@
+
+
+body {
+  background-color: #121212; /* Fondo negro */
+  color: white; /* Texto blanco */
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background: #121212; /* Fondo negro */
+  transition: padding-bottom 0.3s ease-in-out;
+  height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    overflow: hidden;
+  }
+}
+
+.sidebar {
+  flex: 1;
+  background: #1e1e1e; /* Fondo oscuro para la sidebar */
+  display: flex;
+  flex-direction: column; /* Alinea elementos verticalmente */
+  align-items: center;
+  justify-content: flex-start; /* Alinea elementos al inicio */
+  text-align: center;
+  padding: 20px;
+  overflow: hidden; /* Evita que el contenido se desborde */
+}
+
+.call-screen {
+  width: 100%; /* Asegura que ocupe todo el ancho de la sidebar */
+}
+
+.avatar {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.avatar img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.speaking-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(0, 123, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+}
+
+.end-call-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #c82333; /* Fondo oscuro */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px; /* Añade un margen para separar del banner */
+  transition: background-color 0.3s ease-in-out; /* Transición suave para el cambio de fondo */
+}
+
+.end-call-button:hover {
+  background-color: #dc3545; /* Fondo rojo intenso para hover */
+}
+.chat {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.message {
+  display: flex;
+  margin: 20px 0; /* Aumentado el margen para más separación entre mensajes */
+  padding: 10px;
+  border-radius: 10px;
+  width: fit-content;
+  max-width: 80%;
+  align-self: flex-start;
+}
+
+.message-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-message {
+  background: #226fe255; /* Fondo oscuro */
+  align-self: flex-end;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-block;
+  margin-left: auto;
+}
+
+.bot-message {
+  background: #1e1e1e; /* Fondo oscuro */
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-block;
+}
+
+.icon {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.user-icon {
+  color: #ffffff; /* Color del ícono del usuario */
+}
+
+.bot-icon {
+  color: #ffffff; /* Color del ícono del bot */
+}
+
+/* Estilo para los íconos */
+.fa-user, .fa-robot {
+  font-size: 20px;
+}
+
+
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: #2c2c2c; /* Fondo oscuro para la caja de texto */
+  border-radius: 12px; /* Bordes más redondeados */
+  width: 100%;
+  max-width: 90vw; /* Máximo 90% del ancho del viewport */
+  margin-top: auto;
+  box-sizing: border-box; /* Para incluir padding en el tamaño total */
+}
+
+@media (min-width: 800px) {
+  .input-container {
+    min-width: 800px; /* Mínimo 800px en pantallas grandes */
+  }
+}
+
+
+
+.input-container input {
+  flex: 1;
+  padding: 20px; /* Aumentada la altura de la caja de texto */
+  border: 1px solid #444;
+  border-radius: 12px; /* Bordes más redondeados */
+  margin-right: 10px;
+  background: #1e1e1e; /* Fondo oscuro */
+  color: white; /* Texto blanco */
+  font-size: 16px; /* Tamaño de fuente más grande */
+}
+.input-container button {
+  padding: 10px;
+  border: none;
+  border-radius: 50%; /* Botón más redondeado */
+  background: rgb(80, 8, 206);
+  color: white;
+  cursor: pointer;
+  font-size: 16px; /* Tamaño de fuente más grande */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.record-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white; /* Texto blanco */
+}
+.input-container .record-button {
+  margin-left: 10px; /* Espaciado a la izquierda del botón */
+}
+
+.recording-animation {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.recording-animation {
+  color: white;
+}
+.recording-animation span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+  margin: 0 5px;
+  animation: pulse-animation 0.8s infinite alternate;
+}
+
+@keyframes pulse-animation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.8);
+  }
+}
+
+.thinking-animation {
+  display: flex;
+  justify-content: left;
+  margin-top: 3px;
+}
+
+.thinking-animation span {
+  display: inline-block;
+  width: 5px;
+  height: 10px;
+  border-radius: 0%;
+  background-color: rgb(78, 203, 252);
+  margin: 0 5px;
+  animation: pulse-animation-thinking 0.6s infinite alternate;
+}
+
+.thinking-animation span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.thinking-animation span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.thinking-animation span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse-animation-thinking {
+  0% {
+    transform: scale(0.2);
+  }
+  100% {
+    transform: scale(1.9);
+  }
+}
+
+.loading {
+  cursor: wait;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.suggestions, .errors {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  font-size: 12px; 
+}
+
+.chip {
+  background: #444;
+  color: white;
+  border-radius: 16px;
+  padding: 5px 10px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.chip .close-chip {
+  background: none;
+  border: none;
+  color: white;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.error-chip {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Media Queries para Responsividad */
+@media (min-width: 768px) {
+  .banner {
+    height: auto;
+    flex-direction: row;
+  }
+
+  .content {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+  }
+
+  .suggestions, .errors {
+    width: auto;
+  }
+
+  .close-button {
+    margin-right: 2%;
+    margin-top: 0;
+  }
+}
+
+.button-group {
+  display: flex;
+  gap: 5px; /* Espacio entre botones */
+  justify-content: flex-end; /* Alineación a la derecha */
+  margin-right: 10px; /* Margen derecho para separación del borde */
+}
+
+.button {
+  background-color: #444; /* Color de fondo de los botones */
+  color: #fff; /* Color del texto */
+  border: none;
+  padding: 5px 10px; /* Espaciado interno más pequeño */
+  border-radius: 12px; /* Bordes más redondeados */
+  cursor: not-allowed; /* Cursor indicando no disponible */
+  position: relative; /* Necesario para el tooltip */
+}
+
+.button.smart {
+  background: linear-gradient(90deg, #1e3c72, #2a5298); /* Degradado para el botón "Smart" */
+}
+
+.button:hover::after {
+  content: attr(title); /* Mostrar el texto del atributo title */
+  position: absolute;
+  bottom: -30px; /* Posición del tooltip debajo del botón */
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #333, #555); /* Degradado del tooltip */
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0; /* Inicialmente invisible */
+  transition: opacity 0.3s; /* Transición para el tooltip */
+}
+
+.button:hover::after {
+  opacity: 1; /* Mostrar tooltip al pasar el mouse */
+}
+
+.button:hover {
+  cursor: not-allowed;
+}
+
+.button.more {
+  display: flex;
+  align-items: center;
+}
+
+.button.more::before {
+  content: "⋮"; /* Icono de tres puntos */
+  margin-right: 5px; /* Espaciado entre el icono y el texto */
+}
+
+.button-group .button:not(.smart):hover::after {
+  content: "This option is only available for registered users."; /* Texto del tooltip */
+  position: absolute;
+  bottom: -30px; /* Posición del tooltip debajo del botón */
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #333, #555); /* Degradado del tooltip */
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0; /* Inicialmente invisible */
+  transition: opacity 0.3s; /* Transición para el tooltip */
+}
+
+.button-group .button:not(.smart):hover::after {
+  opacity: 1; /* Mostrar tooltip al pasar el mouse */
+}
+
+.button-group .button:not(.smart):hover {
+  cursor: not-allowed; /* Cambia el cursor a no permitido */
+}
+.typed-text {
+  color: white;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+

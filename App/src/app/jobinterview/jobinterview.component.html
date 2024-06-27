@@ -1,0 +1,27 @@
+
+<app-navbar></app-navbar>
+<div class="card-container">
+  <div class="card">
+    <div class="card-content">
+      <div class="text-content">
+        <h1>AI-Powered Job Interview</h1>
+        <p>Learn and practice your English with a job interview simulation</p>        
+       
+        <mat-form-field *ngIf="!isLoading" appearance="fill">
+          <mat-label>Topics</mat-label>
+          <input type="text" placeholder="Search topics" aria-label="Topic" matInput [formControl]="topicCtrl" [matAutocomplete]="auto" [value]="selectedTopic?.topic || ''">
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onTopicChange($event.option.value)">
+            <mat-option *ngFor="let topic of filteredTopics | async" [value]="topic">
+              {{ topic.topic }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>     
+          
+        <button (click)="startPractice()">Start practice</button>
+      </div>
+      <div class="image-content">
+        <img src="job2.png" alt="AI Assistant">
+      </div>
+    </div>
+  </div>
+</div>

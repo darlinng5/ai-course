@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="icon" [ngStyle]="{'color': lesson.color}">
+    <i [ngClass]="'fas ' + lesson.icon"></i>
+  </div>
+  <div class="content">
+    <h5>{{ lesson.day }}</h5>
+    <p>{{ lesson.isActive ? 'Available' : 'Not Available' }}</p>
+    <p>{{ lesson.name }}</p>
+  </div>
+  <div>
+    <button (click)="startLesson(lesson)" class="start-button-rounded">Start</button>
+  </div>
+</div>

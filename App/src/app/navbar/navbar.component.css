@@ -1,0 +1,94 @@
+.navbar {
+    width: 100%;
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Evita el desbordamiento horizontal */
+    box-sizing: border-box;
+  }
+  
+  .navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas si es necesario */
+    width: 100%;
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-logo {
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .navbar-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas si es necesario */
+    flex-grow: 1; /* Permite que se ajuste al espacio disponible */
+  }
+  
+  .nav-link {
+    margin: 5px 10px; /* Ajusta el margen para reducir espacio */
+    text-decoration: none;
+    color: rgb(84, 83, 83);
+    font-weight: bold;
+    font-size: 16px;
+    padding: 5px 10px; /* Ajusta el padding para reducir espacio */
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .nav-link.active {
+    background-color: #f0f0f0;
+  }
+  
+  .nav-link:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .nav-link.challenge {
+    color: #4285f4;
+    font-weight: bold;
+  }
+  
+  .nav-link.challenge:hover {
+    background-color: #1318a7;
+    color: white;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-right span {
+    margin-right: 10px;
+  }
+  
+  .navbar-right i {
+    font-size: 20px;
+    color: black;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar-center {
+      flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
+    }
+  
+    .nav-link {
+      margin: 5px 0; /* Reduce el margen entre los enlaces */
+    }
+  }
+  
+  

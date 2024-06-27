@@ -1,0 +1,21 @@
+<div class="banner" [ngClass]="{ 'hidden': !isVisible }">
+  <div class="content">
+    <div class="suggestions">
+      <ul>
+        <li *ngFor="let suggestion of Sugestion; let i = index" class="chip">
+          {{ suggestion }}
+          <span class="close-chip" (click)="removeSuggestion(i)">x</span>
+        </li>
+      </ul>
+    </div>
+    <div class="errors">
+      <ul>
+        <li *ngFor="let error of Mistakes; let i = index" class="chip error-chip">
+          {{ error }}
+          <span class="close-chip" (click)="removeError(i)">x</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <button class="close-button" (click)="closeBanner()">X</button>
+</div>

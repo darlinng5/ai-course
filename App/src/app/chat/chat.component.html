@@ -1,0 +1,90 @@
+
+<div class="container">
+  <div class="sidebar">
+    <div class="call-screen">
+      <div class="avatar">
+        <div *ngIf="isSystemSpeaking" class="speaking-animation"></div>
+        <img src="avatar.png" alt="Silueta de la persona">
+      </div>
+      <button (click)="openConfirmDialog()" class="end-call-button">
+        Close
+      </button>
+    </div>
+<button mat-icon-button (click)="toggleVisibility()">
+  <mat-icon>{{ isVisible ? 'visibility_off' : 'visibility' }}</mat-icon>
+</button>
+
+  <mat-dialog-content class="typing-animation" *ngIf="isVisible">
+    <div class="suggestions">
+      <ul>
+        <li *ngFor="let suggestion of Sugestion; let i = index" class="chip">
+          {{ suggestion }}
+          <span class="close-chip" (click)="removeSuggestion(i)">x</span>
+        </li>
+      </ul>
+    </div>
+  
+    <div class="errors">
+      <ul>
+        <li *ngFor="let error of Mistakes; let i = index" class="chip error-chip">
+          {{ error }}
+          <span class="close-chip" (click)="removeError(i)">x</span>
+        </li>
+      </ul>
+    </div>
+  </mat-dialog-content>  
+
+
+</div>
+<div class="chat">
+
+  <div class="button-group">
+    <button class="button smart">GPT-3.5</button>
+    <button class="button smart">Whisper</button>
+    <button class="button">GPT-4</button>
+    <button class="button">Claude</button>
+    <button class="button">Azure IA</button>
+    <button class="button more">More</button>
+  </div>
+  <div class="header">
+    <span #typedElement class="typed-text"></span>   
+    
+  </div>
+  <div class="chat-container">
+    <div class="messages" #messageContainer>
+      <div *ngFor="let message of messages" class="message-container">
+        <div [ngClass]="{'user-message': message.user, 'bot-message': !message.user}">
+          <span class="icon" [ngClass]="{'user-icon': message.user, 'bot-icon': !message.user}">
+            <i class="fas" [ngClass]="{'fa-user': message.user, 'fa-robot': !message.user}"></i>
+          </span>
+          {{ message.text }}
+        </div>
+      </div>
+      
+      <div *ngIf="isWaitingResponse">
+        <div class="thinking-animation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>           
+      </div>
+    </div>
+    <div class="input-container">
+      <input [disabled]="isRecording ||  isWaitingResponse" type="text" [(ngModel)]="newMessage" (keyup.enter)="pushMessage()" placeholder="Ask anything..."/>
+      <button [disabled]="isRecording || isWaitingResponse" (click)="pushMessage()">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+      <button [disabled]="isWaitingResponse" class="record-button" (click)="toggleRecording()">
+        <i class="fas" [ngClass]="{'fa-microphone': !isRecording, 'fa-stop': isRecording}"></i>
+      </button>
+      <div class="recording-animation" *ngIf="isRecording">
+        <span></span>
+        {{timeRecorded}}
+    </div>
+    
+    </div>
+  </div>
+</div>
+
+</div>
+
